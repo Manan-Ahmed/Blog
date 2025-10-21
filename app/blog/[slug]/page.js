@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MDXComponents from "@/components/MDXComponents";
 
-/* ✅ Generate all static paths for dynamic routes */
+
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("posts"));
   return files.map((filename) => ({
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   }));
 }
 
-/* ✅ Custom <Image> for MDX content */
+
 function MDXImage(props) {
   return (
     <Image
@@ -28,7 +28,7 @@ function MDXImage(props) {
   );
 }
 
-/* ✅ SEO Metadata for each post */
+
 export async function generateMetadata({ params }) {
   const filePath = path.join("posts", `${params.slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, "utf-8");
@@ -57,14 +57,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
-/* ✅ Main Blog Page Component */
+
 export default async function BlogPost({ params }) {
-  // Read the single post file
+ 
   const filePath = path.join("posts", `${params.slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContents);
 
-  // Read all posts for related section
   const files = fs.readdirSync(path.join("posts"));
   const allPosts = files.map((filename) => {
     const fileContent = fs.readFileSync(path.join("posts", filename), "utf-8");
@@ -80,9 +79,10 @@ export default async function BlogPost({ params }) {
   );
 
   return (
-    <article className="max-w-3xl mx-auto my-12 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden">
-
-      {/* ✅ Blog Cover */}
+    <>
+    <div className="max-w-3xl mx-auto my-12 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden">
+<div>
+      {/* Blog Cover */}
       {data.cover && (
         <div className="w-full">
           <Image
@@ -96,7 +96,7 @@ export default async function BlogPost({ params }) {
         </div>
       )}
 
-      {/* ✅ Blog Content */}
+      {/*  Blog Content */}
       <div className="p-6">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           {data.title}
@@ -107,19 +107,28 @@ export default async function BlogPost({ params }) {
           <MDXRemote source={content} components={{ ...MDXComponents, Image: MDXImage }} />
         </div>
       </div>
+</div>
+</div>
 
-      {/* ✅ Related Posts */}
+<div className="max-w-3xl mx-auto my-12">
+  <h2 className="text-2xl font-semibold text-center">Related Post</h2>
+      {/*  Related Posts */}
       {relatedPosts.length > 0 && (
         <div className="p-6 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
-            Related Posts
-          </h2>
+         
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {relatedPosts.map((post) => (
               <li
                 key={post.slug}
                 className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 hover:shadow-md transition"
               >
+                <Image
+                            width={800}
+                            height={400}
+                            className="rounded-t-lg w-full h-48 object-cover"
+                            src={post.cover}
+                            alt={post.title}
+                          />
                 <Link
                   href={`/blog/${post.slug}`}
                   className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
@@ -136,6 +145,13 @@ export default async function BlogPost({ params }) {
           </ul>
         </div>
       )}
-    </article>
+      </div>
+   
+    </>
   );
 }
+
+
+
+
+

@@ -43,6 +43,10 @@ export default function LatestPost() {
               key={post.slug}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300"
             >
+              <Link
+                  href={`/blog/${post.slug}`}
+                  className="text-blue-600 font-semibold hover:underline"
+                >
               <Image
                 src={post.cover}
                 alt={post.title}
@@ -50,6 +54,7 @@ export default function LatestPost() {
                 height={250}
                 className="object-cover w-full h-56"
               />
+             </Link>
               <div className="p-5">
                 <h3 className="text-xl font-bold mb-2">{post.title}</h3>
                 <p className="text-gray-600 mb-3">{post.description}</p>

@@ -22,7 +22,7 @@ export default function Hero(){
           href="/blog"
           className="inline-block bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition duration-300"
         >
-          Read Latest Posts
+          Read Posts
         </a>
       </div>
     </section>

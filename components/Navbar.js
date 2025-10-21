@@ -26,7 +26,7 @@ export default function Navbar() {
             px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 
             dark:focus:ring-blue-800"
           >
-            Get started
+            Contact
           </button>
 
           {/* Hamburger Menu Button */}
@@ -69,8 +69,8 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className="block py-2 px-3 text-white active:bg-blue-700 rounded md:bg-transparent 
-                md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                 className="block py-2 px-3 text-white active:bg-blue-700 rounded md:bg-transparent 
+                md:text-blue-600 md:p-0 md:dark:text-blue-600"
               >
                 Home
               </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
               <Link
                 href="/about"
                 className="block py-2 px-3 text-white active:bg-blue-700 rounded md:bg-transparent 
-                md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                md:text-blue-600 md:p-0 md:dark:text-blue-600"
               >
                 About
               </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
               <Link
                 href="/blog"
                 className="block py-2 px-3 text-white active:bg-blue-700 rounded md:bg-transparent 
-                md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                md:text-blue-700 md:p-0 md:dark:text-blue-600"
               >
                 Blog
               </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 className="block py-2 px-3 text-white active:bg-blue-700 rounded md:bg-transparent 
-                md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                md:text-blue-700 md:p-0 md:dark:text-blue-600"
               >
                 Contact
               </Link>
@@ -112,3 +112,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+

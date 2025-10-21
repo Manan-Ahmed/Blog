@@ -17,7 +17,7 @@ export default function About() {
           {/* Left Side - Image */}
           <div className="flex-1">
             <Image
-              src="/images/about.jpg"
+              src="/images/about-us.jpg"
               alt="About Us"
               width={500}
               height={400}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 
@@ -18,12 +19,12 @@ export default function Hero(){
         </p>
 
         {/* Call To Action */}
-        <a
+        <Link
           href="/blog"
           className="inline-block bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition duration-300"
         >
           Read Posts
-        </a>
+        </Link>
       </div>
     </section>
   );

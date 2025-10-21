@@ -1,6 +1,6 @@
 
-
-
+import Link from "next/link";
+import Image from "next/image";
 export default function BlogList(){
       // 1️⃣ Read all markdown/MDX files inside posts folder
   const files = fs.readdirSync(path.join("posts"));
@@ -12,7 +12,7 @@ export default function BlogList(){
       path.join("posts", filename),
       "utf-8"
     );
-    const { data } = matter(markdownWithMeta);
+    // const { data } = matter(markdownWithMeta);
     // 3️⃣ Sort posts (optional)
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
